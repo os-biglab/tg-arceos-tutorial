@@ -48,7 +48,7 @@ cd tg-arceos-tutorial/
 ./scripts/batch_exec.sh -c "cargo xtask run --arch=aarch64"
 ./scripts/batch_exec.sh -c "cargo xtask run --arch=loongarch64"
 ./scripts/batch_exec.sh -c "cargo xtask run --arch=x86_64"
-
+```
 
 ## 练习
 有5 个练习需要完成
