@@ -108,27 +108,6 @@ The `xtask` tool uses the `fatfs` Rust crate to create a 64MB FAT32 disk image (
 
 No external tools (`mkfs.fat`, `mtools`) are required.
 
-
-## Exercise
-### Requirements
-Based on the `arceos-loadapp` kernel component and the reference code under the `exercise` directory, implement a kernel component named `arceos-loadapp-ramfs--rename` that supports two operations: `rename` and `mv`.
-
-Within the kernel, the following similar operations can be completed:
-```
-mkdir dira
-rename dira dirb
-echo "hello" > a.txt
-rename a.txt b.txt
-mv b.txt ./dirb
-ls ./dirb
-```
-
-### Expectation
-```
-[Ramfs-Rename]: ok!
-```
-
-
 ## ArceOS Tutorial Crates
 
 This crate is part of a series of tutorial crates for learning OS development with [ArceOS](https://github.com/arceos-org/arceos). The crates are organized by functionality and complexity progression:

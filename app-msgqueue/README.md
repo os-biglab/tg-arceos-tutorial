@@ -165,21 +165,6 @@ cross-compilation and QEMU execution:
 | `paging` feature | Enables page table management; maps MMIO regions listed in config |
 | `multitask` feature | Enables multi-task scheduler with cooperative scheduling support |
 
-## Exercise
-### Requirements
-Based on the `arceos-msgqueue` kernel component and the reference code under the `exercise` directory, implement a new kernel functional component for the memory allocator named `bump_allocator` (based on the `bump` memory allocation algorithm), as well as the corresponding kernel component `arceos-msgqueue-alt-alloc`. You are required to modify the implementation of the `exercise/modules/bump_allocator` component as much as possible to support the `bump` memory allocation algorithm, and modify other parts as little as possible.
-
-### Expectation
-```
-Running bump tests...
-Bump tests run OK!
-```
-
-### Tips
-1. You can refer to the existing page allocator and byte allocator to implement the corresponding Traits.
-2. This `bump_allocator` acts as both a byte allocator and a page allocator. Therefore, it must implement three Traits: `BaseAllocator`, `ByteAllocator`, and `PageAllocator` simultaneously. This is different from the existing references.
-
-
 ## ArceOS Tutorial Crates
 
 This crate is part of a series of tutorial crates for learning OS development with [ArceOS](https://github.com/arceos-org/arceos). The crates are organized by functionality and complexity progression:

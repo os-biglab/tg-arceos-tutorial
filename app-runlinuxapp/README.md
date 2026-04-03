@@ -262,28 +262,6 @@ app-runlinuxapp/
 | `exit_group` | 94 | 231 |
 | `arch_prctl` | — | 158 |
 
-
-## Exercise
-### Requirements
-Based on the `arceos-runlinuxapp` kernel component and the reference code under the `exercise` directory, implement a kernel component named `arceos-runlinux-with-sys-map` that implements the `sys_mmap` system call (the system call number varies across different processors; for riscv64, the sys_mmap system call number is 222 in decimal and 0xde in hexadecimal). This component should support file mapping to make the test cases pass.
-
-Additional Requirements:
-1. Implement the `sys_mmap` system call to ensure the test cases pass.
-
-### Expectation
-Taking riscv64 as an example:
-```
-handle_syscall [222] ...
-paddr: PA:0x....
-...
-MapFile ok!
-...
-monolithic kernel exit [Some(0)] normally!
-```
-
-### Tips
-You can refer to the code segment for loading applications into the user address space in `arceos-userprivilege` kernel component.
-
 ## ArceOS Tutorial Crates
 
 This crate is part of a series of tutorial crates for learning OS development with [ArceOS](https://github.com/arceos-org/arceos). The crates are organized by functionality and complexity progression:

@@ -1,7 +1,0 @@
-[package]
-name = "arceos-helloworld-with-color"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-axstd = { workspace = true, optional = true }

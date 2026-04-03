@@ -139,16 +139,6 @@ cross-compilation and QEMU execution:
 ### Requirements
 Based on the `arceos-collection` kernel component and the reference code in the `exercise` directory, implement a new kernel component named `arceos-collection-support-hashmap` to add support for `collections::HashMap` in components such as `axstd`.
 
-### Expectation
-```
-test_hashmap() OK!
-Memory tests run OK!
-```
-
-Tips:
-1. If there are errors related to `std`, the `std` in the error messages actually refers to `axstd`. There is a line "extern crate axstd as std;" in the test case file `main.rs`.
-2. A random number generation function `random()` is provided in `axhal`, which can be used to add random number support for `HashMap`.
-
 ## ArceOS Tutorial Crates
 
 This crate is part of a series of tutorial crates for learning OS development with [ArceOS](https://github.com/arceos-org/arceos). The crates are organized by functionality and complexity progression:
