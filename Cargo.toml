@@ -17,7 +17,5 @@ include = [
     "README.md",
     "src/**",
     "bundle/apps.tar.gz",
-    "scripts/crates.txt",
-    "scripts/compress_crates.sh",
-    "scripts/extract_crates.sh",
+    "scripts/**",
 ]

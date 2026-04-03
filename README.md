@@ -1,6 +1,6 @@
 # tg-arceos-tutorial
 
-`tg-arceos-tutorial` 是一个集合 crate，用于把与`arceos`相关的 `app-*` 教学 crate 的源码打包到一个压缩包里，便于通过 `cargo clone` 后离线解包恢复完整目录。
+`tg-arceos-tutorial` 是一个集合 crate，用于把与`arceos`相关的 `app-*` 和 `exercise-*` 教学 crate 的源码打包到一个压缩包里，便于通过 `cargo clone` 后离线解包恢复完整目录。
 
 ## 准备
 
@@ -10,7 +10,10 @@ cd tg-arceos-tutorial
 bash scripts/extract_crates.sh
 ```
 
-解包后会在当前目录生成以下 15 个 crate 目录：
+解包后会在当前目录生成 20 个 crate 目录，包括 15 个 `app-*` 和 5 个 `exercise-*`。
+
+## `app-*` 教学示例
+
 ### unikernel
 - `app-helloworld` : https://github.com/arceos-org/app-helloworld
 - `app-collections` : https://github.com/arceos-org/app-collections
@@ -30,10 +33,23 @@ bash scripts/extract_crates.sh
 - `app-guestvdev` : https://github.com/arceos-org/app-guestvdev
 - `app-guestmonolithickernel` : https://github.com/arceos-org/app-guestmonolithickernel
 
+## `exercise-*` 实验内容
 
-## 运行 
-进入任意 `app-*` 目录即可独立构建/运行，如：
-```
+源码随本仓库分发；也可单独使用 `cargo clone <包名>` 从 [crates.io](https://crates.io) 获取（包名见下表「crates.io 包名」列）。
+
+| 目录 | crates.io 包名 | 实验内容说明 |
+|------|----------------|------|
+| `exercise-printcolor` | `arceos-printcolor` | unikernel，彩色终端输出（ANSI） |
+| `exercise-hashmap` | `arceos-hashmap` | unikernel，在 `axstd` 中实现 `collections::HashMap` |
+| `exercise-altalloc` | `arceos-altalloc` | unikernel，实现 bump 式内存分配器 |
+| `exercise-ramfs-rename` | `arceos-ramfs-rename` | unikernel，ramfs 根文件系统上的 `rename` 支持 |
+| `exercise-sysmap` | `arceos-sysmap` | monolithic kernel，用户态程序与 `mmap` 系统调用实现 |
+
+## 运行
+
+进入任意 `app-*` 或 `exercise-*` 目录即可独立构建/运行，例如：
+
+```bash
 cd tg-arceos-tutorial/app-helloworld
 cargo xtask run # 或 cargo xtask run --arch=riscv64
 cargo xtask run --arch=aarch64
@@ -41,31 +57,27 @@ cargo xtask run --arch=loongarch64
 cargo xtask run --arch=x86_64
 ```
 
-或在所有 `app-*` 目录中执行，
-```
-cd tg-arceos-tutorial/
-./scripts/batch_exec.sh -c "cargo xtask run"
-./scripts/batch_exec.sh -c "cargo xtask run --arch=aarch64"
-./scripts/batch_exec.sh -c "cargo xtask run --arch=loongarch64"
-./scripts/batch_exec.sh -c "cargo xtask run --arch=x86_64"
-```
+### 批量执行
 
-## 练习
-有5 个练习需要完成
+在仓库根目录（已解包、且各 crate 目录存在）下，可按前缀批量执行同一命令：
 
-- app-helloworld
-- app-collections
-- app-msgqueue
-- app-loadapp
-- app-runlinuxapp
+- 对所有 `app-*`：`./scripts/batch_app_exec.sh -c "cargo xtask run"`
+- 对所有 `exercise-*`：`./scripts/batch_exercise_exec.sh -c "cargo xtask run"`
+
+其它示例：
+
+```bash
+./scripts/batch_app_exec.sh -c "cargo xtask run --arch=aarch64"
+./scripts/batch_exercise_exec.sh -c "bash scripts/test.sh"
+```
 
 ## 维护者：重新生成 bundle
 
-在包含 `app-*` 目录的路径中执行：
+在根目录中执行：
 
 ```bash
 cd tg-arceos-tutorial
-SOURCE_ROOT=.. bash scripts/compress_crates.sh
+bash scripts/compress_crates.sh
 ```
 
 将生成：

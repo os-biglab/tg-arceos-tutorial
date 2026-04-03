@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 批量执行脚本：对app-*目录执行指定命令
+# 批量执行脚本：对exercise-*目录执行指定命令
 
 usage() {
     echo "用法: $0 -c \"CMD\""
@@ -41,8 +41,8 @@ fi
 # 获取当前目录
 SCRIPT_DIR="$(pwd)"
 
-# 查找所有app-*目录并排序
-APP_DIRS=$(find "$SCRIPT_DIR" -maxdepth 1 -type d -name "arceos-*" | sort)
+# 查找所有exercise-*目录并排序
+EXERCISE_DIRS=$(find "$SCRIPT_DIR" -maxdepth 1 -type d -name "exercise-*" | sort)
 
 # 统计目录数量
 TOTAL=0
@@ -53,8 +53,8 @@ echo "=========================================="
 echo "在以下目录执行命令: $CMD"
 echo "=========================================="
 
-# 遍历每个app-*目录
-for dir in $APP_DIRS; do
+# 遍历每个exercise-*目录
+for dir in $EXERCISE_DIRS; do
     TOTAL=$((TOTAL + 1))
     dir_name=$(basename "$dir")
     
