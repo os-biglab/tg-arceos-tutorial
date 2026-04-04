@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/arceos-org/exercise-sysmap
 	branch = main
-	commit = 793b3a9b8292d2322f55c8c604572da511b021d2
-	parent = 57c983b6f5582c57d78b9a590698820496ddf368
+	commit = 9fed0b1dbcad9b170bc1af182b238b076a1b340f
+	parent = a0ec010d9ac93e616066acea5d2c7228e28f4e53
 	method = merge
 	cmdver = 0.4.9
