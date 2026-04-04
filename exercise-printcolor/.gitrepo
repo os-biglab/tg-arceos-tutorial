@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/arceos-org/exercise-printcolor
 	branch = main
-	commit = 14666b304e999b6a61398b561a98670560b04de4
-	parent = 027a557acce738b1cfd4fb272a3079317a8f1fc3
+	commit = bcd788e1888bb1b202fedc881f81b5fd6acb3a5b
+	parent = a68029f34b0ca73301372f56ad0287cefa930c0d
 	method = merge
 	cmdver = 0.4.9
