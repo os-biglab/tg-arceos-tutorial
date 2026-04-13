@@ -62,8 +62,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "arceos-helloworld"
-version = "0.4.6"
+name = "arceos-helloworld-qfr"
+version = "0.0.1-preview.1"
 dependencies = [
  "axstd",
  "clap",

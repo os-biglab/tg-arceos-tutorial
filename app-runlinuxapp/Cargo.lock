@@ -77,8 +77,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "arceos-runlinuxapp"
-version = "0.4.6"
+name = "arceos-runlinuxapp-qfr"
+version = "0.0.1-preview.1"
 dependencies = [
  "axerrno 0.1.2",
  "axfeat",

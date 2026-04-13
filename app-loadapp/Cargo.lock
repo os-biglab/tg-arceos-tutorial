@@ -77,8 +77,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "arceos-loadapp"
-version = "0.4.6"
+name = "arceos-loadapp-qfr"
+version = "0.0.1-preview.1"
 dependencies = [
  "axfeat",
  "axfs",
