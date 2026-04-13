@@ -1,0 +1,11 @@
+[package]
+name = "ramfs_rename"
+version = "0.1.0"
+edition = "2021"
+authors = ["Yuekai Jia <equation618@gmail.com>"]
+
+[features]
+default = []
+axstd = []
+
+[dependencies]

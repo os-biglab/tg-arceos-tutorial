@@ -1,0 +1,25 @@
+[package]
+name = "sys_map"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = ["axstd"]
+axstd = ["dep:axstd"]
+
+[dependencies]
+axstd = { version = "=0.2.2-preview.1", features = ["defplat", "alloc", "paging", "multitask", "sched-cfs", "uspace"], optional = true }
+axfeat = { version = "=0.2.2-preview.1", features = ["fs", "fs-fat"] }
+axfs = { version = "=0.2.2-preview.1", features = ["fat"] }
+axio = { version = "=0.3.0-pre.1" }
+axmm = { version = "=0.2.2-preview.1", features = ["copy"] }
+axhal = { version = "=0.2.2-preview.3", features = ["uspace"] }
+axsync = { version = "=0.2.2-preview.1" }
+axtask = { version = "=0.2.2-preview.3" }
+axlog = { version = "=0.2.2-preview.1" }
+axerrno = "0.1"
+linkme = "0.3"
+kernel-elf-parser = "0.3"
+arceos_posix_api = { version = "=0.2.2-preview.1" }
+bitflags = "2.6"
+memory_addr = "0.4"

@@ -1,0 +1,11 @@
+[package]
+name = "arceos-collection-support-hashmapp"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+axstd = { version = "0.2.2-preview.1", features = ["alloc"], optional = true }
+
+[features]
+default = []
+axstd = ["dep:axstd"]

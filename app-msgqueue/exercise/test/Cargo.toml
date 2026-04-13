@@ -1,0 +1,11 @@
+[package]
+name = "alt_alloc"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axstd = { version = "0.2.2-preview.1", features = ["alloc"], optional = true }
+
+[features]
+default = []
+axstd = ["dep:axstd"]
