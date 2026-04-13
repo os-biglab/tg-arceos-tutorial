@@ -137,3 +137,25 @@ cargo xtask run
 - `app-msgqueue`：通过
 - `app-loadapp`：通过
 - `app-runlinuxapp`：通过
+
+---
+
+## 总结与反思
+
+### 调试过程
+- 在 `app-msgqueue`、`app-loadapp`、`app-runlinuxapp` 的 exercise 中，先从 README 的目标输出和目录结构入手，确认每个实验真正的入口文件和运行方式。
+- 对 `app-runlinuxapp`，先遇到交叉编译器不可用的问题，再遇到运行时 syscall 缺失、payload 文件名不匹配、FAT 文件路径处理异常等问题，逐项定位后再修复。
+- 每次修改后都通过实际运行验证，而不是只看代码表面是否完整，避免“看起来实现了但跑不起来”的情况。
+- 对发布验证阶段，发现 `cargo publish` 在稳定工具链下会触发 nightly 依赖报错，随后切换到 `cargo +nightly` 才确认 verify 通过。
+
+### 与 AI 的协作过程
+- 我先让 AI 帮忙梳理仓库结构、读取 README 和 exercise 代码，确定每个实验的目标和缺口。
+- 在实现阶段，AI 负责把需求拆成可执行步骤，例如先补齐入口，再实现功能，再跑测试验证。
+- 在 debug 阶段，AI 会根据运行日志判断问题属于工具链、依赖、路径还是 syscall 逻辑，并给出下一步最值得排查的方向。
+- 在发布阶段，AI 根据 `cargo publish` 的报错结果，识别出问题根因是工具链 channel，而不是 crate 内容本身，并给出可操作的修复方式。
+
+### 学习收获
+- 对 ArceOS 的几个核心能力有了更完整的认识：文件系统、用户态加载、syscall 处理、地址空间映射和 QEMU 运行链路。
+- 理解了 exercise 类项目不仅要实现代码，还要把构建、运行、验证链路一起打通。
+- 对 Rust crate 发布流程有了更直接的体验，尤其是 `Cargo.toml`、`rust-toolchain.toml` 和发布时工具链一致性的重要性。
+- 体会到 debug 的关键不是一次修完所有问题，而是根据日志不断缩小范围，先解决最阻塞主链路的问题。
